@@ -63,10 +63,20 @@ export const Home = () => {
       return (
             <>
                   <Header />
-                  <DialogBox handleClickOpen={handleClickOpen} handleClose={handleClose} open={open} editId={editId} handleChange={handleChange} />
+                  <DialogBox handleClickOpen={handleClickOpen} handleClose={handleClose} open={open} editId={editId} handleChange={handleChange} text={text} />
                   <TodoTable handleClickOpen={handleClickOpen} setOpen={setOpen} setEditId={setEditId} />
                   <ReusableTable columns={column} width="md" rows={data} actions={actions} />
                   <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="lg" rows={data1} />
+                  <ReusableTable columns={column1} width="md" rows={data1} />
+                  <ReusableTable columns={column1} width="sm" rows={data1} />
+                  <ReusableTable columns={column1} width="xs" rows={data1} />
 
             </>
       )
