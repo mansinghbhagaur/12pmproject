@@ -1,17 +1,24 @@
 import { useDispatch, useSelector } from "react-redux"
 import { increment, decrement, reset, amountbyMultiply } from "./redux/counterSlice";
-import { useGetQuery } from "./redux/apiSlice";
+import { useRetrieveQuery, useCreateMutation } from "./redux/apiSlice";
 
 export default function App() {
-  const { data, isFetching, error, isLoading, refetch } = useGetQuery({ url: '/comments' });
+  // const { data, isFetching, error, isLoading, refetch } = useRetrieveQuery({ url: '/uses' });
+  const [create] = useCreateMutation();
+  const { data } = useRetrieveQuery({ url: 'users' });
 
-  console.log("error", error, "isFetch", isFetching, "isloading", isLoading, "refetch", refetch);
+  const dataForm = { name: 'man', age: 20 }
+  const handleSubmit = () => {
+    create({ url: '/users', data: dataForm });// create a new user
+  }
+
+  // console.log("error", error, "isFetch", isFetching, "isloading", isLoading, "refetch", refetch);
 
   const { value } = useSelector((state) => state.counter)
-  // console.log(data, "value");
+  console.log(data, "value");
   const dispatch = useDispatch();
 
-  if (isLoading) return <h1>Loading...</h1>
+  // if (isLoading) return <h1>Loading...</h1>
 
   return (
     <div style={{ textAlign: 'center' }}>
